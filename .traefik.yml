@@ -1,0 +1,10 @@
+displayName: Traefik-GeoIP2 Plugin
+type: middleware
+iconPath: .assets/icon.png
+
+import: github.com/7i11/traefik-geoip2
+
+summary: '[TraefikGeoIP2] Add Config'
+
+testData:
+  FromHeader: 'X-Forwarded-For'
