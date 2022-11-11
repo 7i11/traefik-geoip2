@@ -21,7 +21,7 @@ type Config struct {
 func CreateConfig() *Config {
 	return &Config{
 		FromHeader:    "X-Forwarded-For",
-		GeoDBLocation: "./GeoLite2-City.mmdb",
+		GeoDBLocation: "./databases/GeoLite2-Country.mmdb",
 	}
 }
 
@@ -52,7 +52,7 @@ func (a *TraefikGeoip2) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	}
 	reqheader := req.Header.Get(a.fromheader)
 	ip := net.ParseIP(reqheader)
-	record, err := db.City(ip)
+	record, err := db.Country(ip)
 	if err != nil {
 		log.Fatal(err)
 	}
